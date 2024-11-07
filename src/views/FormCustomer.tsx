@@ -135,7 +135,7 @@ const FormCustomer: React.FC = () => {
             </OptionsArea>
 
             <ButtonsArea>
-              <NavigationButton direction="back" onClick={handleBack} />
+              {/* <NavigationButton direction="back" onClick={handleBack} /> */}
               <NavigationButton
                 label="Siguiente"
                 direction="next"
