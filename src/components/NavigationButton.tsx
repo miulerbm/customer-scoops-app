@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import BackIcon from "../assets/svg/back-arrow.svg";
-import NextIcon from "../assets/svg/next-arrow.svg";
+import BackIcon from "../../public/assets/svg/back-arrow.svg";
+import NextIcon from "../../public/assets/svg/next-arrow.svg";
 
 interface NavigationButtonProps {
   direction: "next" | "back";

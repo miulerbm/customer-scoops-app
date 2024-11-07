@@ -43,7 +43,7 @@ const FormScreen: React.FC<FormScreenProps> = ({ children }) => {
   return (
     <Container>
       <Logo
-        src="/src/assets/customer-scoops-logo.webp"
+        src="/assets/customer-scoops-logo.webp"
         alt="Customer Scoops Logo"
       />
       <Content>{children}</Content>

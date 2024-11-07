@@ -37,7 +37,7 @@ const ImageArea = styled.div`
   justify-content: flex-end;
   align-items: center;
   position: relative;
-  background-image: url("src/assets/background-right.webp");
+  background-image: url("/assets/background-right.webp");
   background-size: contain;
   background-position: bottom 0px right 0px;
   background-repeat: no-repeat;
@@ -88,12 +88,12 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({
   return (
     <Container>
       <MobileBanner>
-        <img src="src/assets/mobile-banner.webp" alt="Banner móvil" />
+        <img src="/assets/mobile-banner.webp" alt="Banner móvil" />
       </MobileBanner>
       <ContentArea>{children}</ContentArea>
       <ImageArea>
         <PersonContainer>
-          <img src="src/assets/man-right-bg.webp" alt="Persona con teléfono" />
+          <img src="/assets/man-right-bg.webp" alt="Persona con teléfono" />
         </PersonContainer>
       </ImageArea>
     </Container>
