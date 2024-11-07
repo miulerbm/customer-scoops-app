@@ -12,6 +12,7 @@ import OptionsArea from "../components/OptionsArea";
 import ProgressBar from "../components/ProgressBar";
 import React, { useState } from "react";
 import StepIndicator from "../components/StepIndicator";
+import axios from "axios";
 
 const FormCustomer: React.FC = () => {
   const { state, dispatch } = useFormContext();
@@ -22,6 +23,8 @@ const FormCustomer: React.FC = () => {
   );
 
   const [showModal, setShowModal] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [confirmationMessage, setConfirmationMessage] = useState("");
 
   const handleNext = () => {
     if (
@@ -56,8 +59,21 @@ const FormCustomer: React.FC = () => {
     return keys[step];
   };
 
-  const handleSubmit = () => {
-    console.log("Resultados:", formData);
+  const handleSubmit = async () => {
+    try {
+      const email = "miulerbm00@gmail.com";
+      const response = await axios.post("http://localhost:3001/send-email", {
+        email,
+        formData,
+      });
+      console.log(response.data.message);
+      setConfirmationMessage(response.data.message);
+      setShowConfirmationModal(true);
+    } catch (error) {
+      console.error("Error al enviar el correo:", error);
+      setConfirmationMessage("Hubo un error al enviar el correo.");
+      setShowConfirmationModal(true);
+    }
   };
 
   return (
@@ -69,6 +85,12 @@ const FormCustomer: React.FC = () => {
           <Modal
             message="Por favor, completa la información solicitada antes de continuar."
             onClose={() => setShowModal(false)}
+          />
+        )}
+        {showConfirmationModal && (
+          <Modal
+            message={confirmationMessage}
+            onClose={() => setShowConfirmationModal(false)}
           />
         )}
         {currentStep === 0 && (
