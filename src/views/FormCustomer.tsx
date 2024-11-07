@@ -47,6 +47,9 @@ const FormCustomer: React.FC = () => {
   const handleDataChange = (key: keyof typeof formData, value: string) => {
     dispatch({ type: "SET_DATA", data: { [key]: value } });
   };
+  const redirectToCustomerScoops = () => {
+    window.location.href = "https://www.customerscoops.com/";
+  };
 
   const getFormKey = (step: number): keyof IFormData => {
     const keys: (keyof IFormData)[] = [
@@ -309,7 +312,10 @@ const FormCustomer: React.FC = () => {
               <NavigationButton
                 label="Siguiente"
                 direction="next"
-                onClick={handleNext}
+                onClick={() => {
+                  handleNext();
+                  handleSubmit();
+                }}
               />
             </ButtonsArea>
           </FormScreen>
@@ -332,7 +338,7 @@ const FormCustomer: React.FC = () => {
               <NavigationButton
                 label="Finalizar"
                 direction="next"
-                onClick={handleSubmit}
+                onClick={redirectToCustomerScoops}
                 showArrow={false}
               />
             </ButtonsArea>
