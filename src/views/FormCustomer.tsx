@@ -27,19 +27,30 @@ const FormCustomer: React.FC = () => {
   const [confirmationMessage, setConfirmationMessage] = useState("");
 
   const handleNext = () => {
-    if (
-      (currentStep === 0 && !tempSelection) ||
-      (currentStep > 0 && !formData[getFormKey(currentStep)])
-    ) {
+    if (currentStep === 0) {
+      const isValidName =
+        /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/.test(tempSelection || "") &&
+        (tempSelection?.trim().length || 0) > 3;
+
+      if (!isValidName) {
+        setConfirmationMessage(
+          "Por favor, ingresa un nombre válido. Debe contener solo letras, sin caracteres especiales, y tener más de 3 letras."
+        );
+        setShowModal(true);
+        return;
+      }
+      handleDataChange("name", tempSelection!.trim());
+    } else if (!formData[getFormKey(currentStep)]) {
+      setConfirmationMessage(
+        "Por favor, completa la información solicitada antes de continuar."
+      );
       setShowModal(true);
       return;
     }
-    if (currentStep === 0) {
-      handleDataChange("name", tempSelection || "");
-    }
+
+    // Avanza al siguiente paso si todo es válido
     dispatch({ type: "SET_STEP", step: currentStep + 1 });
   };
-
   const handleBack = () => {
     if (currentStep > 0) dispatch({ type: "SET_STEP", step: currentStep - 1 });
   };
@@ -87,7 +98,7 @@ const FormCustomer: React.FC = () => {
       <Layout>
         {showModal && (
           <Modal
-            message="Por favor, completa la información solicitada antes de continuar."
+            message={confirmationMessage}
             onClose={() => setShowModal(false)}
           />
         )}
