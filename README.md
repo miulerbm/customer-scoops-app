@@ -1,50 +1,69 @@
-# React + TypeScript + Vite
+# Customer Scoops App (by @miulerbm)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una prueba técnica que consiste en una aplicación web diseñada para gestionar el envío de datos mediante un formulario en diferentes pantallas.
 
-Currently, two official plugins are available:
+## Enlace al Despliegue
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La aplicación está desplegada en Vercel y puedes acceder a ella desde el siguiente enlace: [Customer Scoops App en Vercel](https://customer-scoops-app.vercel.app/).
 
-## Expanding the ESLint configuration
+## Estructura del Proyecto
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+El repositorio cuenta con dos ramas principales:
 
-- Configure the top-level `parserOptions` property like this:
+- **main**: Esta es la versión principal desplegada en Vercel. No incluye la funcionalidad de envío de correos.
+- **develop**: Esta rama contiene la funcionalidad de envío de correos utilizando **Resend**. Es ideal para pruebas de funcionalidad adicional.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Instrucciones para Ejecutar el Proyecto Localmente
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+1. Clona el repositorio:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+   ```bash
+   git clone git@github.com:miulerbm/customer-scoops-app.git
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+2. Cambia a la rama `develop` para acceder a la funcionalidad completa:
+
+   ```bash
+   git checkout develop
+   ```
+
+3. Instala las dependencias:
+
+   ```bash
+   npm install
+   ```
+
+4. Para habilitar el envío de correos, ejecuta el servidor desde la carpeta `server`:
+
+   ```bash
+   node server/server.js
+   ```
+
+5. En una nueva terminal, inicia el proyecto:
+   ```bash
+   npm run dev
+   ```
+
+## Tecnologías Utilizadas
+
+- **Styled Components**: Para la creación de estilos modulares y componentes reutilizables.
+- **Interfaces TypeScript**: Mejora la tipificación y organización del código.
+- **Vite**: Herramienta rápida y moderna de desarrollo para construir la aplicación.
+- **Vercel**: Plataforma de despliegue utilizada para alojar la versión de producción de la aplicación.
+
+## Enfoque de Maquetación
+
+El diseño se centró en crear un layout general que se adaptara a las especificaciones proporcionadas en el Figma, asegurando que fuera completamente responsivo y mantuviera una experiencia de usuario consistente en diferentes tamaños de pantalla.
+
+### Notas Adicionales
+
+- La funcionalidad de envío de correo solo está disponible en la rama `develop`.
+- El diseño modular permite el fácil mantenimiento y extensión de la aplicación, facilitando la adición de nuevas pantallas o componentes en el futuro.
+
+## Contacto
+
+- **GitHub**: [miulerbm](https://github.com/miulerbm)
+- **Sitio Web**: [miulerbm.vercel.app](https://miulerbm.vercel.app/es)
+- **LinkedIn**: [miulerbm](https://www.linkedin.com/in/miulerbm/)
+
+Para cualquier pregunta o retroalimentación, no dudes en abrir un issue o contactarme directamente en cualquiera de mis perfiles.
