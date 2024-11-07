@@ -12,7 +12,7 @@ import OptionsArea from "../components/OptionsArea";
 import ProgressBar from "../components/ProgressBar";
 import React, { useState } from "react";
 import StepIndicator from "../components/StepIndicator";
-// import axios from "axios";
+import axios from "axios";
 
 const FormCustomer: React.FC = () => {
   const { state, dispatch } = useFormContext();
@@ -61,16 +61,14 @@ const FormCustomer: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      // const email = "miulerbm00@gmail.com";
-      // const response = await axios.post("http://localhost:3001/send-email", {
-      //   email,
-      //   formData,
-      // });
-      // console.log(response.data.message);
-      // setConfirmationMessage(response.data.message);
-      setConfirmationMessage(
-        "Datos enviados correctamente!" + JSON.stringify(formData)
-      );
+      const email = "miulerbm00@gmail.com";
+      const response = await axios.post("http://localhost:3001/send-email", {
+        email,
+        formData,
+      });
+      console.log(response.data.message);
+      setConfirmationMessage(response.data.message);
+
       setShowConfirmationModal(true);
     } catch (error) {
       console.error("Error al enviar el correo:", error);

@@ -17,7 +17,7 @@ app.post("/send-email", async (req, res) => {
   const emailContent = `
   <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; background-color: #f9f9f9; color: #333;">
     <div style="background-color: #231331; padding: 20px; text-align: center; border-radius: 8px 8px 0 0;">
-      <img src="https://raw.githubusercontent.com/miulerbm/customer-scoops-app/refs/heads/main/src/assets/mobile-banner.webp" alt="Customer Scoops" style="width: 150px;"/>
+      <img src="https://raw.githubusercontent.com/miulerbm/customer-scoops-app/refs/heads/main/public/assets/mobile-banner.webp" alt="Customer Scoops" style="width: 150px;"/>
     </div>
     <div style="padding: 20px; background-color: #ffffff;">
       <h2 style="color: #231331;">Hola ${formData.name || "Usuario"},</h2>
@@ -25,7 +25,7 @@ app.post("/send-email", async (req, res) => {
       <p>Por eso, hemos preparado unas breves preguntas para que puedas compartir tus comentarios y sugerencias.</p>
       <p>Tu opinión es clave para ayudarnos a mejorar y adaptarnos a lo que realmente necesitas. Nos tomará solo unos minutos de tu tiempo.</p>
       
-      <a href="https://miulerbm.vercel.app/es" style="display: inline-block; padding: 10px 20px; background-color: #231331; color: #ffffff; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 10px 0;">Ingresa Aquí</a>
+      <a href="https://customer-scoops-app.vercel.app/" style="display: inline-block; padding: 10px 20px; background-color: #231331; color: #ffffff; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 10px 0;">Ingresa Aquí</a>
       
       <p>Agradecemos de antemano tu participación y confianza en Customer Scoops. ¡Gracias por tu tiempo y por contribuir a nuestra mejora continua!</p>
       
@@ -41,13 +41,13 @@ app.post("/send-email", async (req, res) => {
       <p><strong>Industria:</strong> ${formData.industry}</p>
     </div>
     <div style="background-color: #231331; padding: 10px; text-align: center; color: #ffffff; border-radius: 0 0 8px 8px;">
-      <img src="URL_DEL_LOGO_FOOTER" alt="Customer Scoops" style="width: 100px;"/>
+      <img src="https://raw.githubusercontent.com/miulerbm/customer-scoops-app/refs/heads/main/public/assets/scoops-white.webp" alt="Customer Scoops" style="width: 100px;"/>
     </div>
   </div>
 `;
   try {
     await resend.emails.send({
-      from: "noreply@resend.dev",
+      from: "miulerbm@resend.dev",
       to: email,
       subject: "Resultados del Formulario",
       html: emailContent,
