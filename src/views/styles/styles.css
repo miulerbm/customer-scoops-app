@@ -1,0 +1,59 @@
+.infoAreaText {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  text-align: left;
+}
+
+.infoAreaText span {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .infoAreaText {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoAreaText {
+    font-size: 0.9rem;
+    line-height: 1.25;
+  }
+}
+
+.infoAreaFinale {
+  font-size: 2rem;
+  line-height: 1.75;
+  text-align: left;
+}
+
+.infoAreaFinale span {
+  font-weight: bold;
+}
+
+.infoAreaFinale .italic {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 100;
+}
+
+@media (max-width: 768px) {
+  .infoAreaFinale {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoAreaFinale {
+    font-size: 0.9rem;
+    line-height: 1.25;
+  }
+
+  .infoAreaFinale .italic {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 100;
+  }
+}
