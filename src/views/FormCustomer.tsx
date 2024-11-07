@@ -64,7 +64,7 @@ const FormCustomer: React.FC = () => {
 
   const handleSubmit = async () => {
     try {
-      const email = "miulerbm00@gmail.com";
+      const email = "anthony@customerscoops.com";
       const response = await axios.post("http://localhost:3001/send-email", {
         email,
         formData,
